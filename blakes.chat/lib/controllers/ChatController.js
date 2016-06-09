@@ -1,15 +1,15 @@
 /**
  * create namespace, in my case I am using
- * Radiegtya as my meteor username/module, and
+ * Blakes as my meteor username/module, and
  * ChatController for my controllername
  */
-Namespace('Radiegtya.ChatController');
+Namespace('Blakes.ChatController');
 
 /**
  * our controller extends Meteoris.Controller to get the inheritance method
  * from Meteoris.Controller which is very useful, and reusable
  */
-Radiegtya.ChatController = Meteoris.Controller.extend({
+Blakes.ChatController = Meteoris.Controller.extend({
     /*
      * for now we are Hard coded the channel id to general
      * you can change this later by Flow Router uri/query parameter or Session
@@ -29,7 +29,7 @@ Radiegtya.ChatController = Meteoris.Controller.extend({
     },
     /* action getAll data from Chat collection */
     getAll: function() {
-        return Radiegtya.Chat.find(this.getCriteria(), this.getSortLimit());
+        return Blakes.Chat.find(this.getCriteria(), this.getSortLimit());
     },
     /* get sortLimit for limit & sorting collection */
     getSortLimit: function() {
@@ -62,7 +62,7 @@ Radiegtya.ChatController = Meteoris.Controller.extend({
     post: function(t) {
         var doc = this._getDoc(t);
 
-        Radiegtya.Chat.insert(doc, function(err, _id) {
+        Blakes.Chat.insert(doc, function(err, _id) {
             if (err) {
                 Meteoris.Flash.set('danger', err.message);
                 throw new Meteor.Error(err);
